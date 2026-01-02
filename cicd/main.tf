@@ -44,6 +44,7 @@ module "records" {
       records = [
         module.jenkins.public_ip
       ]
+      allow_overwrite = true
     },
     {
       name    = "jenkins-agent"
@@ -52,6 +53,7 @@ module "records" {
       records = [
         module.jenkins-agent.private_ip
       ]
+      allow_overwrite = true
     }    
   ]
 }
