@@ -14,7 +14,7 @@ module "jenkins" {
     }
 }
 
-module "jenkins-agent" {
+module "jenkins_agent" {
   source  = "terraform-aws-modules/ec2-instance/aws"
   version = "~> 5.0"
 
@@ -51,7 +51,7 @@ module "records" {
       type    = "A"
       ttl =      1
       records = [
-        module.jenkins-agent.private_ip
+        module.jenkins_agent.private_ip
       ]
       allow_overwrite = true
     }    
