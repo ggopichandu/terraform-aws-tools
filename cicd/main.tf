@@ -14,11 +14,11 @@ module "jenkins" {
     }
 }
 
-module "jenkins_agent" {
+module "jenkins-agent" {
   source  = "terraform-aws-modules/ec2-instance/aws"
   version = "~> 5.0"
 
-  name = "jenkins_agent"
+  name = "jenkins-agent"
 
   instance_type = "t3.small"
   vpc_security_group_ids = ["sg-09884a3929b4c7a4c"]
