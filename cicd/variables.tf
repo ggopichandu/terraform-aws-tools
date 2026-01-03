@@ -3,3 +3,9 @@ variable "zone_name" {
     default = "gopichand.online"
     description = "description"
 }
+
+variable "zone_id" {
+  type        = string
+  default     = "Z05089881SMV5BSCETO2M"
+  description = "description"
+}
