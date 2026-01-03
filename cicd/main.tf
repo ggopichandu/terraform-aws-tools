@@ -62,7 +62,7 @@
 resource "aws_instance" "jenkins" {
   ami = local.ami_id
   instance_type = "t3.small"
-  vpc_security_group_ids = ["sg-09884a3929b4c7a4c"]
+  vpc_security_group_ids = [aws_security_group.main.id]
   subnet_id = "subnet-0546bcf98efcaa4a4"
 
   # need more for terraform
@@ -79,7 +79,7 @@ resource "aws_instance" "jenkins" {
   resource "aws_instance" "jenkins_agent" {
   ami = local.ami_id
   instance_type = "t3.small"
-  vpc_security_group_ids = ["sg-09884a3929b4c7a4c"]
+  vpc_security_group_ids = [aws_security_group.main.id]
   subnet_id = "subnet-0546bcf98efcaa4a4"
 
   # need more for terraform
@@ -92,6 +92,32 @@ resource "aws_instance" "jenkins" {
         Name = "jenkins-agent"
      }
   }
+
+  #Securtiy group
+  resource "aws_security_group" "main" {
+  name        =  "jenkins"
+  description = "Created to attatch Jenkins and its agents"
+
+  egress {
+    from_port        = 0
+    to_port          = 0
+    protocol         = "-1"
+    cidr_blocks      = ["0.0.0.0/0"]
+    ipv6_cidr_blocks = ["::/0"]
+  }
+
+  ingress {
+    from_port        = 0
+    to_port          = 0
+    protocol         = "-1"
+    cidr_blocks      = ["0.0.0.0/0"]
+    ipv6_cidr_blocks = ["::/0"]
+  }
+
+  tags = {
+        Name = "jenkins"
+     }
+  }  
 
 resource "aws_route53_record" "jenkins" {
   zone_id = var.zone_id
