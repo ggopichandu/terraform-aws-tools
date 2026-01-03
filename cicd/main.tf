@@ -104,7 +104,7 @@ resource "aws_route53_record" "jenkins" {
 
 resource "aws_route53_record" "jenkins-agent" {
   zone_id = var.zone_id
-  name    = "jenkins.${var.zone_name}"
+  name    = "jenkins-agent.${var.zone_name}"
   type    = "A"
   ttl     = 1
   records = [aws_instance.jenkins_agent.private_ip]
