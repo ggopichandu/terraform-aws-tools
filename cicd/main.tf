@@ -62,7 +62,7 @@
 resource "aws_instance" "jenkins" {
   ami = local.ami_id
   instance_type = "t3.small"
-  vpc_security_group_ids = [aws_security_group.allow_tls.id]
+  vpc_security_group_ids = ["sg-09884a3929b4c7a4c"]
   subnet_id = "subnet-0546bcf98efcaa4a4"
 
   # need more for terraform
@@ -79,7 +79,7 @@ resource "aws_instance" "jenkins" {
   resource "aws_instance" "jenkins_agent" {
   ami = local.ami_id
   instance_type = "t3.small"
-  vpc_security_group_ids = [aws_security_group.allow_tls.id]
+  vpc_security_group_ids = ["sg-09884a3929b4c7a4c"]
   subnet_id = "subnet-0546bcf98efcaa4a4"
 
   # need more for terraform
