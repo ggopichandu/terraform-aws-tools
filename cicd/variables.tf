@@ -9,3 +9,7 @@ variable "zone_id" {
   default     = "Z05089881SMV5BSCETO2M"
   description = "description"
 }
+
+variable "sonar" {
+  default = false
+}
