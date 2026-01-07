@@ -11,5 +11,5 @@ variable "zone_id" {
 }
 
 variable "sonar" {
-  default = false
+  default = true
 }
