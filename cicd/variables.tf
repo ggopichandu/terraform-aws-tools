@@ -10,6 +10,6 @@ variable "zone_id" {
   description = "description"
 }
 
-variable "sonar" {
-  default = true
+variable "nexus" {
+  default = false
 }
