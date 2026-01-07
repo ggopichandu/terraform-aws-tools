@@ -11,5 +11,5 @@ variable "zone_id" {
 }
 
 variable "nexus" {
-  default = false
+  default = true
 }
