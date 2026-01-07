@@ -19,13 +19,13 @@ data "aws_ami" "joindevops" {
     }
 }
 
-data "aws_ami" "nexus" {
+data "aws_ami" "sonarqube" {
   most_recent = true
   owners      = ["679593333241"] # Solve DevOps
 
   filter {
     name   = "name"
-    values = ["SolveDevOps-Nexus-Server-Ubuntu24.04-*"]
+    values = ["SolveDevOps-SonarQube-Server-Ubuntu24.04-*"]
   }
 
   filter {
