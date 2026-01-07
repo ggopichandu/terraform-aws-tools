@@ -95,7 +95,8 @@ resource "aws_instance" "jenkins" {
   
   resource "aws_key_pair" "cicd" {
     key_name = "cicd"
-    public_key = file("~/.ssh/cicd.pub")
+    public_key = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIGTLanhlwesu8iBxHmmzr3ojlXqVQMVe4mW35PQhcSLp Gopichandg@Gopichand"
+    #public_key = file("~/.ssh/cicd.pub")
   }
 
   resource "aws_instance" "sonar" {
