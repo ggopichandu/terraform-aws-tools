@@ -9,7 +9,10 @@ terraform {
     bucket = "dwas-78s-remote-state"
     key    = "jenkins"
     region = "us-east-1"
-    dynamodb_table = "dwas-78s-locking"
+    #dynamodb_table = "dwas-78s-locking"
+
+    use_lockfile = true
+    encrypt = true
   }
 }
 
