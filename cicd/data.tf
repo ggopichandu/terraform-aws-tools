@@ -19,19 +19,25 @@ data "aws_ami" "joindevops" {
     }
 }
 
-data "aws_ami" "sonarqube" {
-  most_recent = true
-  owners      = ["679593333241"] # Solve DevOps
+data "aws_ami" "nexus_ami_info" {
 
-  filter {
-    name   = "name"
-    values = ["SolveDevOps-SonarQube-Server-Ubuntu24.04-*"]
-  }
+    most_recent = true
+    owners = ["679593333241"]
 
-  filter {
-    name   = "virtualization-type"
-    values = ["hvm"]
-  }
+    filter {
+        name   = "name"
+        values = ["SolveDevOps-Nexus-Server-Ubuntu20.04-20250529-*"]
+    }
+
+    filter {
+        name   = "root-device-type"
+        values = ["ebs"]
+    }
+
+    filter {
+        name   = "virtualization-type"
+        values = ["hvm"]
+    }
 
   filter {
     name   = "architecture"
