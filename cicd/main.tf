@@ -101,7 +101,7 @@ resource "aws_instance" "jenkins" {
 
   resource "aws_instance" "nexus" {
     count = var.nexus ? 1 : 0
-    ami = local.aws_ami.nexus_ami_info.ami_id
+    ami = local.nexus_ami_id
     instance_type = "t3.medium"
     vpc_security_group_ids = [aws_security_group.main.id]
     subnet_id = "subnet-0546bcf98efcaa4a4"
