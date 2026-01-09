@@ -154,7 +154,7 @@ resource "aws_route53_record" "jenkins" {
 resource "aws_route53_record" "nexus" {
   count = var.nexus ? 1 : 0
   zone_id = var.zone_id
-  name    = "sonar.${var.zone_name}"
+  name    = "nexus.${var.zone_name}"
   type    = "A"
   ttl     = 1
   records = [aws_instance.nexus[0].private_ip]
