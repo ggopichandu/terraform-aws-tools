@@ -19,14 +19,14 @@ data "aws_ami" "joindevops" {
     }
 }
 
-data "aws_ami" "nexus_ami_info" {
+data "aws_ami" "nexus" {
 
     most_recent = true
     owners = ["679593333241"]
 
     filter {
         name   = "name"
-        values = ["SolveDevOps-Nexus-Server-Ubuntu20.04-20250529-*"]
+        values = ["SolveDevOps-Nexus-Server-Ubuntu20.04-*"]
     }
 
     filter {
