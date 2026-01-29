@@ -23,7 +23,7 @@ data "aws_ami" "joindevops" {
     }
 }
 
-data "aws_ami" "nexus" {
+/* data "aws_ami" "nexus" {
 
     most_recent = true
     owners = ["679593333241"]
@@ -47,4 +47,4 @@ data "aws_ami" "nexus" {
     name   = "architecture"
     values = ["x86_64"]
   }
-}
+} */

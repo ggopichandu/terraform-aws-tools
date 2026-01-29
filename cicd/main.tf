@@ -93,13 +93,13 @@ resource "aws_instance" "jenkins" {
      }
   }
   
-  resource "aws_key_pair" "cicd" {
+  /* resource "aws_key_pair" "cicd" {
     key_name = "cicd"
     public_key = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIGTLanhlwesu8iBxHmmzr3ojlXqVQMVe4mW35PQhcSLp Gopichandg@Gopichand"
     #public_key = file("~/.ssh/cicd.pub")
-  }
+  } */
 
-  resource "aws_instance" "nexus" {
+  /* resource "aws_instance" "nexus" {
     count = var.nexus ? 1 : 0
     ami = local.nexus_ami_id
     instance_type = "t3.medium"
@@ -114,7 +114,7 @@ resource "aws_instance" "jenkins" {
     tags = {
           Name = "nexus"
       }
-  }
+  } */
 
   #Securtiy group
   resource "aws_security_group" "main" {
@@ -151,7 +151,7 @@ resource "aws_route53_record" "jenkins" {
   allow_overwrite = true
 }
 
-resource "aws_route53_record" "nexus" {
+/* resource "aws_route53_record" "nexus" {
   count = var.nexus ? 1 : 0
   zone_id = var.zone_id
   name    = "nexus.${var.zone_name}"
@@ -159,7 +159,7 @@ resource "aws_route53_record" "nexus" {
   ttl     = 1
   records = [aws_instance.nexus[0].private_ip]
   allow_overwrite = true
-}
+} */
 
 resource "aws_route53_record" "jenkins-agent" {
   zone_id = var.zone_id
