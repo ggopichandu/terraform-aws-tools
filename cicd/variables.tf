@@ -13,3 +13,8 @@ variable "zone_id" {
 variable "nexus" {
   default = true
 }
+
+variable "vpc_id" {
+  default = "vpc-02be58f5e03922341"
+  
+}

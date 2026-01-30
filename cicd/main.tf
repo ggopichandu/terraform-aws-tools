@@ -6,7 +6,7 @@
 
 #   instance_type = "t3.small"
 #   vpc_security_group_ids = ["sg-09884a3929b4c7a4c"]
-#   subnet_id     = "subnet-0546bcf98efcaa4a4"
+#   subnet_id     = "subnet-072fea05ae751e56e"
 #   ami           = data.aws_ami.ami_info.id
 #   user_data = file("jenkins.sh")
 #   tags = {
@@ -22,7 +22,7 @@
 
 #   instance_type = "t3.small"
 #   vpc_security_group_ids = ["sg-09884a3929b4c7a4c"]
-#   subnet_id     = "subnet-0546bcf98efcaa4a4"
+#   subnet_id     = "subnet-072fea05ae751e56e"
 #   ami           = data.aws_ami.ami_info.id
 #   user_data = file("jenkins-agent.sh")
 #   tags = {
@@ -63,7 +63,8 @@ resource "aws_instance" "jenkins" {
   ami = local.ami_id
   instance_type = "t3.small"
   vpc_security_group_ids = [aws_security_group.main.id]
-  subnet_id = "subnet-0546bcf98efcaa4a4"
+  subnet_id = "subnet-072fea05ae751e56e"
+  
 
   # need more for terraform
   root_block_device {
@@ -80,7 +81,7 @@ resource "aws_instance" "jenkins" {
   ami = local.ami_id
   instance_type = "t3.small"
   vpc_security_group_ids = [aws_security_group.main.id]
-  subnet_id = "subnet-0546bcf98efcaa4a4"
+  subnet_id = "subnet-072fea05ae751e56e"
 
   # need more for terraform
   root_block_device {
@@ -104,7 +105,7 @@ resource "aws_instance" "jenkins" {
     ami = local.nexus_ami_id
     instance_type = "t3.medium"
     vpc_security_group_ids = [aws_security_group.main.id]
-    subnet_id = "subnet-0546bcf98efcaa4a4"
+    subnet_id = "subnet-072fea05ae751e56e"
     key_name = aws_key_pair.cicd.key_name
     # need more for terraform
     root_block_device {
